@@ -1,6 +1,4 @@
 import Queue from "bull";
-import axios from "axios";
-import dotenv from 'dotenv';
 import nodemailer from 'nodemailer';
 import getUserInfo from "../network/restTemplate.js";
 import { post } from "../api/controllers/userController.js";

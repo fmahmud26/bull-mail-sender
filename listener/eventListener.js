@@ -1,5 +1,4 @@
 import Queue from 'bull';
-import dotenv from 'dotenv';
 
 const queue = new Queue('mail-sender', {
     redis: {

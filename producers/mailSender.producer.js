@@ -1,5 +1,4 @@
 import Queue from 'bull';
-import dotenv from 'dotenv';
 import milliseconds from "milliseconds";
 
 // Create a Bull queue
