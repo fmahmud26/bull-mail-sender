@@ -30,9 +30,7 @@ const queue = new Queue('mail-sender', {
     };
 
     // Add a repeatable job to the queue
-    queue.add('mail-send', jobData, {
-        removeOnComplete: true,
-    });
+    queue.add('mail-send', jobData, jobOptions);
 
     console.log(`Job added to queue: ${jobData}`);
 

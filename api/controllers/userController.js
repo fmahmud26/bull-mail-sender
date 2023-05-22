@@ -51,7 +51,7 @@ export const postUserInfo = async (req, res) => {
 
 export const post = async (data) => {
     try {
-        const infoToSave = { ...data, id: uuidv4(), time: new Date().getTime() };
+        const infoToSave = { ...data, id: uuidv4(), time: new Date().toISOString().replace('T', ' ').replace('Z', '') };
         console.log(`Before saving info ${infoToSave.text}`);
         await db.none(`INSERT INTO user_info (id, name, email, subject, text, time) 
         VALUES( '${infoToSave.id}', '${infoToSave.name}', '${infoToSave.email}' , '${infoToSave.subject}', 
