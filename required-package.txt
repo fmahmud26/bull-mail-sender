@@ -1,0 +1,26 @@
+To init node project 
+$ npm init -y
+
+To install express
+$ npm install express
+
+To install bull
+$ npm install bull
+
+To install node mailer
+$ npm install bull nodemailer
+
+To install axios
+$ npm install axios
+
+To install milliseconds
+$ npm install milliseconds
+
+To install uuid 
+$ npm install uuid
+
+To install pg-promise
+$ npm install pg-promise
+
+To install dotenv
+$ npm install dotenv
