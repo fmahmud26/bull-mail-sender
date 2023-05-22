@@ -10,19 +10,33 @@ const queue = new Queue('mail-sender', {
     },
 });
 
-// Define the job payload
-const jobData = {
-    subject: "Mail from Bull",
-    text: "This is a text in mail body"
-};
 
-// Add a repeatable job to the queue
-queue.add('mail-send', jobData, {
-    repeat: {
-        every: milliseconds.minutes(10),
-    },
-});
+(async function () {
+    // remove redis cache
+    await queue.obliterate({ force: true });
 
-console.log(`Job added to queue: ${jobData}`);
+
+    // Define the job payload
+    const jobData = {
+        subject: "Mail from Bull",
+        text: "This is a text in mail body"
+    };
+
+    // Define the job options
+    const jobOptions = {
+        repeat: {
+            every: milliseconds.minutes(1),
+        },
+        backoff: 30 * 1000,
+    };
+
+    // Add a repeatable job to the queue
+    queue.add('mail-send', jobData, jobOptions);
+
+    console.log(`Job added to queue: ${jobData}`);
+
+})()
+
+
 
 export default {};

@@ -62,4 +62,4 @@ const sendMail = async (jobData, userInfo) => {
   });
 };
 
-export default queue;
+export default {};
