@@ -15,6 +15,8 @@ const queue = new Queue('mail-sender', {
 queue.process('mail-send', async (job, done) => {
   console.log(`Consumer: Processing job...${job.data}`);
 
+  job.progress(10);
+
   // Get user into
   const userInfo = await getUserInfo().then(data => {
     return data;
@@ -22,11 +24,14 @@ queue.process('mail-send', async (job, done) => {
     console.log(err);
   });
 
+  job.progress(30);
+
   // Send the mail to the user 
   sendMail(job.data, userInfo);
 
   console.log('Consumer: Job processing completed');
 
+  job.progress(100);
   done();
 });
 
