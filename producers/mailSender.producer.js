@@ -15,7 +15,6 @@ const queue = new Queue('mail-sender', {
     // remove redis cache
     await queue.obliterate({ force: true });
 
-
     // Define the job payload
     const jobData = {
         subject: "Mail from Bull",
@@ -31,7 +30,9 @@ const queue = new Queue('mail-sender', {
     };
 
     // Add a repeatable job to the queue
-    queue.add('mail-send', jobData, jobOptions);
+    queue.add('mail-send', jobData, {
+        removeOnComplete: true,
+    });
 
     console.log(`Job added to queue: ${jobData}`);
 

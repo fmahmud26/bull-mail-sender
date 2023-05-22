@@ -6,6 +6,7 @@ import userRoutes from "./api/routes/userRoute.js";
 // Import the producer and consumer
 import producer from "./producers/mailSender.producer.js";
 import consumer from "./consumers/mailSender.consumer.js";
+import listener from "./listener/eventListener.js";
 
 const app = express();
 
